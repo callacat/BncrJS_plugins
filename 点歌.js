@@ -8,6 +8,7 @@
  * @priority 99999
  * @admin false
  * @disable false
+ * @platform HumanTG tgBot
  */
 const axios = require('axios')
 const path = require('path')
