@@ -4,7 +4,7 @@
  * @origin 小熊
  * @version 1.0.0
  * @description 点歌插件
- * @rule (点歌|歌下载) ([^\n]+)$
+ * @rule ^(点歌|歌下载) ([^\n]+)$
  * @priority 99999
  * @admin false
  * @disable false
