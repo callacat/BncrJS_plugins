@@ -6,7 +6,7 @@
  * @name 谷歌翻译
  * @version 1.0.0
  * @description 请先使用 npm i @iamtraction/google-translate 安装模块
- * @rule ^(翻译) (.+)$
+ * @rule ^翻译 (.+)$
  * @admin false
  * @public true
  * @priority 199
