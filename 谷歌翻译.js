@@ -16,16 +16,13 @@
 const translate = require('@iamtraction/google-translate');
 
 module.exports = async (s) => {
-  const command = s.param(1);
-  const text = s.param(2);
+  const text = s.param(1);
 
-  if (command === '翻译') {
-    try {
-      const result = await translate(text, { to: text.match(/[\u4e00-\u9fa5]/) ? 'en' : 'zh-CN' });
-      await s.reply(result.text);
-    } catch (error) {
-      console.error('翻译插件出错:', error);
-      await s.reply('抱歉，翻译过程中出现了错误。');
-    }
+  try {
+    const result = await translate(text, { to: text.match(/[\u4e00-\u9fa5]/) ? 'en' : 'zh-CN' });
+    await s.reply(result.text);
+  } catch (error) {
+    console.error('翻译插件出错:', error);
+    await s.reply('抱歉，翻译过程中出现了错误。');
   }
 };
