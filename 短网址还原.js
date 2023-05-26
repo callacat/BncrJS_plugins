@@ -15,42 +15,6 @@
 
 const axios = require('axios');
 
-module.exports = (s) => {
-    
-  s.middleware(async (meta, next) => {
-    
-    const message = meta.message.trim();
-    const command = message.split(' ')[0];
-
-    if (command === '还原短网址') {
-      const shortUrl = message.split(' ')[1];
-      if (!shortUrl) {
-        await s.reply('请提供一个短网址！');
-        return;
-      }
-
-      try {
-        const response = await axios.get('https://v2.alapi.cn/api/url/query', {
-          params: {
-            token: {ALAPIToken},
-            url: shortUrl,
-          },
-        });
-
-        if (response.data.code === 200) {
-          await s.reply(`还原后的网址：${response.data.data.long_url}`);
-        } else {
-          await s.reply('短网址还原失败，请稍后重试。');
-        }
-      } catch (error) {
-        await s.reply('短网址还原失败，请稍后重试。');
-      }
-    } else {
-      return next();
-    }
-  });
-};
-
 module.exports = async (s) => {
   
   const ALAPIStorage = new BncrDB('ALAPI');
