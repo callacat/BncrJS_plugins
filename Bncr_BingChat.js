@@ -2,8 +2,8 @@
  * @author Masato
  * @name BingChat
  * @origin Masato
- * @version 1.0.5
- * @description 必应搜索聊天AI机器人越狱版，本插件由Bncr_ChatGPT插件修改而来
+ * @version 1.0.6
+ * @description 必应搜索聊天AI机器人Sydney，本插件由Bncr_ChatGPT插件修改而来
  * @rule ^(bing) ([\s\S]+)$
  * @rule ^(bimg) ([\s\S]+)$
  * @admin false
@@ -13,7 +13,9 @@
  */
 
 /* 
-使用命令'set BingChat Token ?'设置Token
+非首次使用，请使用npm i @waylaidwanderer/chatgpt-api命令更新依赖包。
+使用命令'set BingChat Token ?'设置BingChat Token(BingChat现已支持免Token使用，可使用命令'del BingChat Token'删除Token。为防日后必应有任何限制，仍保留此设置项)
+使用命令'set Bimg Token ?'设置Bimg Token（如需使用AI画图功能，请务必设置此项）
 输入'bing ?'进行与BingChat互动。
 脚本为每个用户创建单独的会话，可以保持上下文进行调教
 输入'bing 清空上下文'将清空会话,重新创建新的会话
@@ -35,9 +37,11 @@ module.exports = async s => {
     await sysMethod.testModule(['@waylaidwanderer/chatgpt-api', 'bimg'], { install: true });
     const BingChatStorage = new BncrDB('BingChat');
     const userToken = await BingChatStorage.get('Token');
-    if (!userToken) return s.reply("请使用命令'set BingChat Token ?,设置BingChat的Token");
 	if (s.param(1) === 'bimg') {
-		process.env.BING_IMAGE_COOKIE = userToken;
+		const BimgStorage = new BncrDB('Bimg');
+		const BimgToken = await BimgStorage.get('Token');
+		if (!BimgToken) return s.reply("请使用命令'set Bimg Token ?',设置Bimg的Token");
+		process.env.BING_IMAGE_COOKIE = BimgToken;
 		const { generateImagesLinks } = await import('bimg');
 		try {
 			let num = 4;   //设置返回图片的数量，最多4张
