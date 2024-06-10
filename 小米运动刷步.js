@@ -2,9 +2,10 @@
  * @author Dswang
  * @name 小米运动刷步
  * @team Dswang & SmartAI
- * @version 1.0.0
+ * @version 1.0.1
  * @description 一个用于刷新用户步数的插件，请先下载并注册小米运动（Zepp Life）后绑定微信运动
- * @rule ^刷新步数( 清空(账|帐)(号|户)| [1-9]\d*)?$
+ * @rule ^刷新步数 (清空(账|帐)(号|户))?$
+ * @rule ^刷新步数 ([1-9]\d*)?$
  * @admin false
  * @public false
  * @priority 9999
@@ -68,7 +69,7 @@ module.exports = async s => {
     }
   } else {
     const { account, password } = userData;
-    let steps = s.param(2) || '?';
+    let steps = s.param(1) || '?';
 
     // 处理步数
     if (!isValidSteps(steps)) {
