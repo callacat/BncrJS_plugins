@@ -3,7 +3,7 @@
  * @name 小米运动刷步
  * @team Dswang & SmartAI
  * @version 1.0.1
- * @description 一个用于刷新用户步数的插件，请先下载并注册小米运动（Zepp Life）后绑定微信运动
+ * @description 一个用于刷新用户步数的插件，请先下载并注册小米运动（Zepp Life）后绑定微信运动。来自https://linux.do/t/topic/99835
  * @rule ^刷新步数 (清空(账|帐)(号|户))?$
  * @rule ^刷新步数 ([1-9]\d*)?$
  * @admin false
