@@ -18,7 +18,7 @@ module.exports = async s => {
   await sysMethod.testModule(['axios', 'input'], { install: true });
   const userId = s.getUserId();
   const userDb = new BncrDB('Dswang_userSteps');
-  console.log(s.param(1),s.param(2))
+  // console.log(s.param(1),s.param(2))
 
   // 检查是否为清空账号操作
     if (/^ 清空(账|帐)(号|户)$/.test(s.param(1))) {
