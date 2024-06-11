@@ -2,7 +2,7 @@
  * @author Dswang
  * @name 热点趋势
  * @team Dswang & SmartAI
- * @version 1.0.0
+ * @version 1.0.1
  * @description 获取网络热点
  * @rule ^((抖音|微博|知乎|bilibili|bili|哔哩|哔哩哔哩)热搜)$
  * @admin false
@@ -50,8 +50,14 @@ module.exports = async s => {
 
     // 格式化输出消息
     let replyMessage = `${platform}前10名：\n`;
+
     top10HotList.forEach((item, index) => {
-      replyMessage += `${index + 1}. 热搜词：${item.name}\n热度：${item.hot}\n链接：${item.url}\n\n`;
+      // 检查是否有热度数据
+      if (item.hot) {
+        replyMessage += `${index + 1}. 热搜词：${item.name}\n热度：${item.hot}\n链接：${item.url}\n\n`;
+      } else {
+        replyMessage += `${index + 1}. 热搜词：${item.name}\n链接：${item.url}\n\n`;
+      }
     });
 
     // 回复消息给用户
