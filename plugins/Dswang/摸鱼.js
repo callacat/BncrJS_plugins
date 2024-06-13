@@ -52,7 +52,7 @@ module.exports = async s => {
     } else {
       await s.reply({
         type: 'image',
-        path: `http://localhost:9090/public/moyu_${today}.png` // 假设本地服务器的URL
+        path: apiUrl
       });
     }
   } else {
