@@ -2,17 +2,18 @@
  * @author Dswang
  * @name 二维码生成
  * @team Dswang & SmartAI
- * @version 1.0.0
+ * @version 1.0.1
  * @description 二维码生成插件，通过自定义的API接口生成二维码
  * @rule ^(二维码生成) (.+)$
  * @priority 99999
  * @admin false
- * @public false
+ * @public true
  * @classification ["工具"]
  * @disable false
  */
-
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 
 const jsonSchema = BncrCreateSchema.object({
   apiUrl: BncrCreateSchema.string()
@@ -43,9 +44,38 @@ module.exports = async s => {
       responseType: 'stream' // 确保接收的是图片数据流
     });
 
-    await s.reply({
-      type: 'image',
-      path: response.request.res.responseUrl // 直接使用响应URL
+    const filePath = path.join(process.cwd(), `BncrData/public/qrcode_${Date.now()}.jpg`);
+    const writer = fs.createWriteStream(filePath);
+
+    response.data.pipe(writer);
+
+    writer.on('finish', async () => {
+      if (s.getFrom() === 'tgBot' || s.getFrom() === 'HumanTG') {
+        await s.reply({
+          type: 'image',
+          path: filePath, // 发送本地文件路径
+          options: {
+            contentType: 'image/jpeg'
+          }
+        });
+      } else {
+        await s.reply({
+          type: 'image',
+          path: response.request.res.responseUrl // 直接使用响应URL
+        });
+      }
+      
+      // 删除本地文件
+      fs.unlink(filePath, (err) => {
+        if (err) {
+          console.error('删除文件时发生错误:', err);
+        }
+      });
+    });
+
+    writer.on('error', async (err) => {
+      console.error('写入文件时发生错误:', err);
+      await s.reply('抱歉，发生了错误，请稍后再试。');
     });
   } catch (error) {
     if (error.code === 'EAI_AGAIN') {
