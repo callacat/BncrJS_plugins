@@ -3,10 +3,11 @@
  * @team Dswang & SmartAI
  * @name 定时消息推送插件
  * @version 1.0.0
- * @description 支持多个定时任务，允许配置多个推送目标，支持个人和群组，注意：修改文件后重启无界生效
+ * @description 有bug，暂时不要使用。支持多个定时任务，允许配置多个推送目标，支持个人和群组，注意：修改文件后重启无界生效
  * @priority 9999
  * @classification ["工具", "定时任务"]
- * @service true
+ * @service false
+ * @public fasle
  */
 
 /// <reference path="../../@types/Bncr.d.ts" />
