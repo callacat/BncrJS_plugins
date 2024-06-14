@@ -2,7 +2,7 @@
  * @author Dswang
  * @name 自动回复
  * @team Dswang & SmartAI
- * @version 1.0.1
+ * @version 1.0.2
  * @description 自动回复插件。参考傻妞自动回复功能。仅支持文本
  * @rule ^(reply)\s+(\S+)\s+([\s\S]+)$
  * @rule ^(reply)\s+(\S+)\s+(del)$
@@ -60,14 +60,14 @@ module.exports = async (s) => {
     // console.log(`Delete reply result for keyword ${keyword}: ${result}`);
     s.reply(result ? '删除成功' : '删除失败');
   }
+  
   async function handleGetReply(s, keyword) {
       const reply = await getReply(keyword);
     // console.log(`Get reply for keyword ${keyword}: ${reply}`);
       if (reply) {
       // console.log(`Replying with: ${reply}`);
         await s.reply(reply);
-      }
-      else {
+      } else {
          return "next";
       }
   }
