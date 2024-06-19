@@ -12,7 +12,7 @@
  * @admin false
  * @priority 9
  * @classification ["自动回复"]
- * @public false
+ * @public true
  * @disable false
  */
 
@@ -60,15 +60,15 @@ module.exports = async (s) => {
     // console.log(`Delete reply result for keyword ${keyword}: ${result}`);
     s.reply(result ? '删除成功' : '删除失败');
   }
-  
+
   async function handleGetReply(s, keyword) {
-      const reply = await getReply(keyword);
-    // console.log(`Get reply for keyword ${keyword}: ${reply}`);
+    const reply = await getReply(keyword);
+      // console.log(`Get reply for keyword ${keyword}: ${reply}`);
       if (reply) {
-      // console.log(`Replying with: ${reply}`);
-        await s.reply(reply);
+        // console.log(`Replying with: ${reply}`);
+          await s.reply(reply);
       } else {
-         return "next";
+          return "next";
       }
   }
 
