@@ -10,6 +10,7 @@
  * @public false
  * @priority 9999
  * @classification ["工具"]
+ * @disable true
  */
 
 const axios = require('axios');
