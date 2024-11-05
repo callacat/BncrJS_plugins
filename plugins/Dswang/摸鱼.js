@@ -1,15 +1,20 @@
 /**
  * @author Dswang
  * @name 摸鱼
- * @team Dswang & SmartAI
- * @version 1.0.1
+ * @team Dswang & SmartAI & xmo
+ * @version 1.0.2
  * @description 摸鱼人日历，可以自定义接口
  * @rule ^(摸鱼)$
  * @priority 99999
  * @admin false
- * @public false
+ * @public true
  * @classification ["工具"]
  * @disable false
+ */
+
+/**
+ * 更新日志：
+ * 1.0.2 支持了wechaty的发送，和tgBot一个处理由，xmo更新
  */
 const axios = require('axios');
 const fs = require('fs');
@@ -19,7 +24,11 @@ const jsonSchema = BncrCreateSchema.object({
   apiUrl: BncrCreateSchema.string()
     .setTitle('自定义API接口')
     .setDescription('设置用于生成摸鱼的API接口')
-    .setDefault('https://api.vvhan.com/api/moyu')
+    .setDefault('https://api.vvhan.com/api/moyu'),
+  bncrUrl: BncrCreateSchema.string()
+    .setTitle('无界地址')
+    .setDescription('设置用于本机作为服务器的地址(可设置内网)')
+    .setDefault('http://127.0.0.1:9090'),
 });
 
 const ConfigDB = new BncrPluginConfig(jsonSchema);
@@ -34,6 +43,10 @@ module.exports = async s => {
   }
 
   const apiUrl = userConfig.apiUrl || 'https://api.vvhan.com/api/moyu';
+  let bncrUrl = userConfig.bncrUrl || 'http://127.0.0.1:9090';
+  if (bncrUrl.slice(-1) !== '/') {
+    bncrUrl = bncrUrl + '/';
+  }
 
   const today = new Date().toISOString().split('T')[0]; // 获取当前日期
   const filePath = path.join(process.cwd(), `BncrData/public/moyu_${today}.png`); // 使用 PNG 格式
@@ -49,9 +62,15 @@ module.exports = async s => {
           contentType: 'image/png' // 设置 content-type 为 PNG
         }
       });
+    } else if (s.getFrom() === 'wechaty') {
+      await s.reply({
+        type: 'image',
+        path: `${bncrUrl}public/moyu_${today}.png` // 假设本地服务器的URL
+      });
     } else {
       await s.reply({
         type: 'image',
+        // path: `https://bncrsub.dsdog.tk/public/moyu_${today}.png` // 假设本地服务器的URL
         path: apiUrl
       });
     }
