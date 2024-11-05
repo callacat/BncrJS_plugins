@@ -1,7 +1,7 @@
 /**
  * @author Dswang
  * @name 摸鱼
- * @team Dswang & SmartAI & xmo
+ * @team Dswang & SmartAI
  * @version 1.0.2
  * @description 摸鱼人日历，可以自定义接口
  * @rule ^(摸鱼)$
