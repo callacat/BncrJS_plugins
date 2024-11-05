@@ -2,7 +2,7 @@
  * @author Dswang
  * @name 摸鱼
  * @team Dswang & SmartAI
- * @version 1.0.2
+ * @version 1.0.3
  * @description 摸鱼人日历，可以自定义接口
  * @rule ^(摸鱼)$
  * @priority 99999
@@ -14,6 +14,7 @@
 
 /**
  * 更新日志：
+ * 1.0.3 仅刷新版本号
  * 1.0.2 支持了wechaty的发送，和tgBot一个处理由，xmo更新
  */
 const axios = require('axios');
