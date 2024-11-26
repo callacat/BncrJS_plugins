@@ -12,12 +12,12 @@ jobs:
 
     steps:
       - name: 检出代码
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: 设置 Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
-          node-version: '14'
+          node-version: '20'
 
       - name: 安装依赖
         run: npm install
