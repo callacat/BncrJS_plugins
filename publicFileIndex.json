@@ -1,0 +1,135 @@
+{
+  "annotation": "该文件由系统自动生成. 用于插件市场索引,请勿编辑该文件中的任何内容",
+  "KSKJ9h5iyxVfc60NQtULDcQHgaw=": {
+    "type": "github",
+    "name": "二维码生成",
+    "author": "Dswang",
+    "team": "Dswang & SmartAI",
+    "version": "1.0.1",
+    "description": "二维码生成插件，通过自定义的API接口生成二维码",
+    "classification": [
+      "工具"
+    ],
+    "filename": "二维码生成.js",
+    "fileDir": "/plugins/Dswang/二维码生成.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "KSKJ9h5iyxVfc60NQtULDcQHgaw=",
+    "isChatPlugin": true
+  },
+  "0offqescF/SPB5u/Ya8fasZtzV8=": {
+    "type": "github",
+    "name": "快递查询",
+    "author": "Dswang",
+    "team": "Dswang & SmartAI",
+    "version": "1.0.0",
+    "description": "快递查询插件。去 https://alapi.cn/ 申请token",
+    "classification": [
+      "工具"
+    ],
+    "filename": "快递查询.js",
+    "fileDir": "/plugins/Dswang/快递查询.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "0offqescF/SPB5u/Ya8fasZtzV8=",
+    "isChatPlugin": true
+  },
+  "Ze+ElCxSmyRl65KymYSUfB4K/cM=": {
+    "type": "github",
+    "name": "摸鱼",
+    "author": "Dswang",
+    "team": "Dswang & SmartAI",
+    "version": "1.0.3",
+    "description": "摸鱼人日历，可以自定义接口",
+    "classification": [
+      "工具"
+    ],
+    "filename": "摸鱼.js",
+    "fileDir": "/plugins/Dswang/摸鱼.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "Ze+ElCxSmyRl65KymYSUfB4K/cM=",
+    "isChatPlugin": true
+  },
+  "+Y97Dh3TUjVWIyMyX1Cvf1+FPMo=": {
+    "type": "github",
+    "name": "短网址生成",
+    "author": "Dswang",
+    "team": "Dswang & SmartAI",
+    "version": "1.1.0",
+    "description": "短网址生成插件，可以自定义短网址类型。去 https://alapi.cn/ 申请token",
+    "classification": [
+      "工具"
+    ],
+    "filename": "短网址生成.js",
+    "fileDir": "/plugins/Dswang/短网址生成.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "+Y97Dh3TUjVWIyMyX1Cvf1+FPMo=",
+    "isChatPlugin": true
+  },
+  "8EeGL/GRYbpGA6fNyJbKXZuRLRg=": {
+    "type": "github",
+    "name": "翻译",
+    "author": "Dswang",
+    "team": "Dswang & SmartAI",
+    "version": "1.7.0",
+    "description": "使用不同翻译API进行翻译，并支持代理配置",
+    "classification": [
+      "工具"
+    ],
+    "filename": "翻译.js",
+    "fileDir": "/plugins/Dswang/翻译.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "8EeGL/GRYbpGA6fNyJbKXZuRLRg=",
+    "isChatPlugin": true
+  },
+  "URtqJsIZmQ5A7V+TJMTNN/gdYdk=": {
+    "type": "github",
+    "name": "自动回复",
+    "author": "Dswang",
+    "team": "Dswang & SmartAI",
+    "version": "1.0.2",
+    "description": "自动回复插件。参考傻妞自动回复功能。仅支持文本",
+    "classification": [
+      "自动回复"
+    ],
+    "filename": "自动回复.js",
+    "fileDir": "/plugins/Dswang/自动回复.js",
+    "systemVersionRange": "",
+    "isCron": false,
+    "isAdapter": false,
+    "isMod": false,
+    "isService": false,
+    "isAuthentication": false,
+    "isEncPlugin": false,
+    "id": "URtqJsIZmQ5A7V+TJMTNN/gdYdk=",
+    "isChatPlugin": true
+  }
+}
