@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const PluginCloudStorage = {};
 
-const directories = ['./Adapter', './plugins'];
+const directories = ['./plugins'];
 
 directories.forEach(dir => {
   function readDirRecursive(currentDir) {
