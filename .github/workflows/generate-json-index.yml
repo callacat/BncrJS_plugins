@@ -5,6 +5,8 @@ on:
     paths:
       - 'Adapter/**'
       - 'plugins/**'
+  repository_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
