@@ -22,7 +22,11 @@ jobs:
           node-version: '20'
 
       - name: 安装依赖
-        run: npm install
+        run: |
+          pwd
+          ls -l
+          cd .github/workflows
+          npm install
 
       - name: 由Actions自动生成插件市场所需JSON索引
         run: node .github/workflows/generate_index.js
